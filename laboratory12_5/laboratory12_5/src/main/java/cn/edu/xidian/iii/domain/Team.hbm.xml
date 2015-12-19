@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-11-12 11:21:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.edu.xidian.iii.domain.Team" table="team" catalog="laboratory">
+        <id name="teamId" type="java.lang.Integer">
+            <column name="team_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="cn.edu.xidian.iii.domain.User" fetch="select">
+            <column name="team_leader" not-null="true" />
+        </many-to-one>
+        <many-to-one name="course" class="cn.edu.xidian.iii.domain.Course" fetch="select">
+            <column name="course_id" not-null="true" />
+        </many-to-one>
+        <property name="CTeamid" type="java.lang.Integer">
+            <column name="c_teamid" not-null="true" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" />
+        </property>
+        <property name="totalTime" type="java.lang.Integer">
+            <column name="total_time" />
+        </property>
+        <set name="teamings" table="teaming" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="team_id" not-null="true" />
+            </key>
+            <one-to-many class="cn.edu.xidian.iii.domain.Teaming" />
+        </set>
+        <set name="notes" table="note" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="team_id" not-null="true" />
+            </key>
+            <one-to-many class="cn.edu.xidian.iii.domain.Note" />
+        </set>
+        <set name="appointments" table="appointment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="team_id" not-null="true" />
+            </key>
+            <one-to-many class="cn.edu.xidian.iii.domain.Appointment" />
+        </set>
+    </class>
+</hibernate-mapping>

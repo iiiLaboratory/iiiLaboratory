@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-11-12 11:21:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.edu.xidian.iii.domain.Course" table="course" catalog="laboratory">
+        <id name="courseId" type="java.lang.Integer">
+            <column name="course_id" />
+            <generator class="identity" />
+        </id>
+        <property name="courseName" type="string">
+            <column name="course_name" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="teacher" type="string">
+            <column name="teacher" length="20" not-null="true" />
+        </property>
+        <property name="tphone" type="string">
+            <column name="tphone" length="11" not-null="true" />
+        </property>
+        <property name="classroom" type="string">
+            <column name="classroom" length="20" not-null="true" />
+        </property>
+        <property name="beginTime" type="timestamp">
+            <column name="begin_time" length="19" />
+        </property>
+        <property name="endTime" type="timestamp">
+            <column name="end_time" length="19" />
+        </property>
+        <property name="maxNumber" type="java.lang.Integer">
+            <column name="max_number" />
+        </property>
+        <property name="identifier" type="string">
+            <column name="identifier" length="10" not-null="true" />
+        </property>
+        <set name="electives" table="elective" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" not-null="true" />
+            </key>
+            <one-to-many class="cn.edu.xidian.iii.domain.Elective" />
+        </set>
+        <set name="teams" table="team" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" not-null="true" />
+            </key>
+            <one-to-many class="cn.edu.xidian.iii.domain.Team" />
+        </set>
+        <set name="coursedevices" table="coursedevice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" not-null="true" />
+            </key>
+            <one-to-many class="cn.edu.xidian.iii.domain.Coursedevice" />
+        </set>
+    </class>
+</hibernate-mapping>

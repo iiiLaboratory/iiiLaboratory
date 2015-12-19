@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/util
+  http://www.springframework.org/schema/util/spring-util.xsd
+  http://www.springframework.org/schema/context 
+  http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/tx 
+  http://www.springframework.org/schema/tx/spring-tx.xsd
+  http://www.springframework.org/schema/mvc
+  http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- 默认的注解映射的支持 -->
+	<mvc:annotation-driven />
+	<context:annotation-config />
+
+	<!-- 开启controller注解支持 -->
+	<!-- use-default-filters="false" 只扫描指定的注解 -->
+	<context:component-scan base-package="cn.edu.xidian.iii.controller">
+	</context:component-scan>
+
+	<!-- 视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="contentType" value="text/html" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<bean id="commonDao" parent="baseTransaction">
+		<property name="target">
+			<bean class="cn.edu.xidian.iii.dao.impl.CommonDaoImpl"></bean>
+		</property>
+	</bean>
+	
+	<bean id="userDao" parent="baseTransaction">
+		<property name="target">
+			<bean class="cn.edu.xidian.iii.dao.impl.UserDaoImpl"></bean>
+		</property>
+	</bean>
+	
+	<bean id="courseDao" parent="baseTransaction">
+		<property name="target">
+			<bean class="cn.edu.xidian.iii.dao.impl.CourseDaoImpl"></bean>
+		</property>
+	</bean>
+	
+	<bean id="deviceDao" parent="baseTransaction">
+		<property name="target">
+			<bean class="cn.edu.xidian.iii.dao.impl.DeviceDaoImpl"></bean>
+		</property>
+	</bean>
+	
+	<bean id="deviceTypeDao" parent="baseTransaction">
+		<property name="target">
+			<bean class="cn.edu.xidian.iii.dao.impl.DeviceTypeDaoImpl"></bean>
+		</property>
+	</bean>
+	
+	<bean id="deviceService" parent="baseTransaction">
+		<property name="target">
+			<bean class="cn.edu.xidian.iii.service.impl.DeviceServiceImpl"></bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="courseService" class="cn.edu.xidian.iii.service.impl.CourseServiceImpl" />
+	<bean id="userService" class="cn.edu.xidian.iii.service.impl.UserServiceImpl" />
+	<bean id="deviceTypeService" class="cn.edu.xidian.iii.service.impl.DeviceTypeServiceImpl" />
+</beans>
