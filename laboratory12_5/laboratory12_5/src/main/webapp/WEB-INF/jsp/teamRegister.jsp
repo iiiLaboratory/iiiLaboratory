@@ -8,7 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-     <c:if test="${not empty inputstyle_error}" > 
+
+
+
+                选课注册，队伍注册<br>
+      <c:if test="${not empty inputstyle_error}" > 
       <font color="#ff6633">ge shi you wu</font> 
       </c:if>
       <c:if test="${not empty error}" > 
@@ -19,8 +23,10 @@
       </c:if> 
        <c:if test="${not empty successteaming}" > 
       <font color="#ff6633">成功注册${successteaming }个teaming,${failteaming }个teaming失败！</font> 
+      </c:if>      
+       <c:if test="${not empty successelective}" > 
+      <font color="#ff6633">成功注册${successelective }个选课记录,${failelective }个选课记录失败！</font> 
       </c:if> 
-      
      <form method="post" action="TeamRegister.do" enctype="multipart/form-data">
           <input type="file" name="excelupload">
           <input type="submit" name="tijiao"> 
