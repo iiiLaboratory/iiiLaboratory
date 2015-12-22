@@ -18,6 +18,13 @@ public class Teaming implements java.io.Serializable {
 	public Teaming() {
 	}
 
+	public Teaming(User user, Team team) {
+		id=new TeamingId(user.getUserId(),team.getTeamId());
+		//System.out.println("teaming"+user.getUserId()+team.getTeamId());
+		this.user = user;
+		this.team = team;
+	}
+	
 	public Teaming(TeamingId id, User user, Team team) {
 		this.id = id;
 		this.user = user;
