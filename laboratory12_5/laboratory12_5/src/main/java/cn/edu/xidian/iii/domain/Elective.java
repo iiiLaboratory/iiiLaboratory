@@ -11,26 +11,24 @@ public class Elective implements java.io.Serializable {
 	private User user;
 	private Course course;
 	private Integer score;
-	private Integer count;
-	private Integer totalTime;
-
 	public Elective() {
 	}
-
+	public Elective(User user, Course course) {
+		id=new ElectiveId(user.getUserId(), course.getCourseId());
+		this.user = user;
+		this.course = course;
+	}
 	public Elective(ElectiveId id, User user, Course course) {
 		this.id = id;
 		this.user = user;
 		this.course = course;
 	}
 
-	public Elective(ElectiveId id, User user, Course course, Integer score,
-			Integer count, Integer totalTime) {
+	public Elective(ElectiveId id, User user, Course course, Integer score) {
 		this.id = id;
 		this.user = user;
 		this.course = course;
 		this.score = score;
-		this.count = count;
-		this.totalTime = totalTime;
 	}
 
 	public ElectiveId getId() {
@@ -63,22 +61,6 @@ public class Elective implements java.io.Serializable {
 
 	public void setScore(Integer score) {
 		this.score = score;
-	}
-
-	public Integer getCount() {
-		return this.count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
-	public Integer getTotalTime() {
-		return this.totalTime;
-	}
-
-	public void setTotalTime(Integer totalTime) {
-		this.totalTime = totalTime;
 	}
 
 }
