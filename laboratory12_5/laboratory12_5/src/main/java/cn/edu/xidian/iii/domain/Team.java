@@ -28,11 +28,15 @@ public class Team implements java.io.Serializable {
 		this.course = course;
 		this.CTeamid = CTeamid;
 	}
+	public Team( Course course, Integer CTeamid) {
+		this.course = course;
+		this.CTeamid = CTeamid;
+	}
 
 	public Team(User user, Course course, Integer CTeamid, Integer count,
 			Integer totalTime, Set<Teaming> teamings, Set<Note> notes,
 			Set<Appointment> appointments) {
-		this.user = user;
+		//this.user = user;
 		this.course = course;
 		this.CTeamid = CTeamid;
 		this.count = count;
@@ -78,6 +82,7 @@ public class Team implements java.io.Serializable {
 		return this.count;
 	}
 
+	
 	public void setCount(Integer count) {
 		this.count = count;
 	}
