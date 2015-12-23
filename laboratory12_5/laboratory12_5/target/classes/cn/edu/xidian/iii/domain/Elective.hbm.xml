@@ -21,11 +21,5 @@
         <property name="score" type="java.lang.Integer">
             <column name="score" />
         </property>
-        <property name="count" type="java.lang.Integer">
-            <column name="count" />
-        </property>
-        <property name="totalTime" type="java.lang.Integer">
-            <column name="total_time" />
-        </property>
     </class>
 </hibernate-mapping>

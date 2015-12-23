@@ -15,7 +15,7 @@
             <column name="role" length="20" not-null="true" />
         </property>
         <property name="cardcode" type="java.lang.Integer">
-            <column name="cardcode" not-null="true" unique="true" />
+            <column name="cardcode" not-null="false" unique="true" />
         </property>
         <property name="password" type="string">
             <column name="password" length="50" not-null="true" />
