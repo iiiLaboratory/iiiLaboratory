@@ -14,7 +14,9 @@ public class Team implements java.io.Serializable {
 	private User user;
 	private Course course;
 	private Integer CTeamid;
+
 	private Integer count;
+	private Integer numcount;
 	private Integer totalTime;
 	private Set<Teaming> teamings = new HashSet<Teaming>(0);
 	private Set<Note> notes = new HashSet<Note>(0);
@@ -23,17 +25,17 @@ public class Team implements java.io.Serializable {
 	public Team() {
 	}
 
-	public Team(User user, Course course, Integer CTeamid) {
-		this.user = user;
+	public Team( Course course, Integer CTeamid,Integer numcount) {
 		this.course = course;
 		this.CTeamid = CTeamid;
+		this.numcount=numcount;
 	}
 	public Team( Course course, Integer CTeamid) {
 		this.course = course;
 		this.CTeamid = CTeamid;
 	}
 
-	public Team(User user, Course course, Integer CTeamid, Integer count,
+	public Team(User user, Course course, Integer CTeamid, Integer count,Integer numcount,
 			Integer totalTime, Set<Teaming> teamings, Set<Note> notes,
 			Set<Appointment> appointments) {
 		//this.user = user;
@@ -44,6 +46,7 @@ public class Team implements java.io.Serializable {
 		this.teamings = teamings;
 		this.notes = notes;
 		this.appointments = appointments;
+		this.numcount=numcount;
 	}
 
 	public Integer getTeamId() {
@@ -118,5 +121,13 @@ public class Team implements java.io.Serializable {
 	public void setAppointments(Set<Appointment> appointments) {
 		this.appointments = appointments;
 	}
+	public Integer getNumcount() {
+		return numcount;
+	}
+
+	public void setNumcount(Integer numcount) {
+		this.numcount = numcount;
+	}
+
 
 }
