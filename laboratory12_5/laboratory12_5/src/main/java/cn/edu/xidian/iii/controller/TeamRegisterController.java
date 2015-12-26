@@ -39,7 +39,7 @@ public class TeamRegisterController {
 		ModelAndView mav=new ModelAndView("teamRegister");
 		InputStream instream=HandleExcel.getExcelInputStream(request);
 		List<String[]>  result=HandleExcel.readExcel(instream);
-		int count=0;
+		int numcount=0;
 		int successteam=0, successteaming=0,existElective=0;
 		
 		for(int i=0;i<result.size()-1;){	//队伍注册，team表
@@ -49,9 +49,9 @@ public class TeamRegisterController {
 				if(course!=null){
 					int  cteamid=Integer.parseInt(result.get(i)[2]);
 					while(i<result.size()-1&&result.get(i)[2].equals(result.get(++i)[2])){
-						count=count+1;;
+						numcount=numcount+1;;
 					}		
-					Team team=new Team(course,cteamid,count+1);
+					Team team=new Team(course,cteamid,numcount+1);
 					if(!teamService.teamExist(team)){
 						teamService.saveTeam(team);
 						successteam++;
@@ -60,7 +60,7 @@ public class TeamRegisterController {
     			    	//team=teamService.findTeam(team);
     			    	mav.addObject("eorror","有队伍已经存在！");
     			   }
-					count=0;
+					numcount=0;
 				}else {
 					mav.addObject("error","有课程为空！");
 					System.out.println("you ke cheng wei kong");
