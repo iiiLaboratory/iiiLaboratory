@@ -20,6 +20,9 @@
         <property name="count" type="java.lang.Integer">
             <column name="count" />
         </property>
+        <property name="numcount" type="java.lang.Integer">
+            <column name="numcount" />
+        </property>
         <property name="totalTime" type="java.lang.Integer">
             <column name="total_time" />
         </property>
