@@ -46,8 +46,8 @@ public class SelectCourseController {
 			return mav;
 		}
 		
-		String courseId = request.getParameter("identifier");
-		Course course = electiveService.findCourseById(courseId);
+		String courseName = request.getParameter("courseName");
+		Course course = electiveService.findCourseByName(courseName);
 		if(course == null){
 			mav.addObject("error","该课程不存在！");
 			return  mav;

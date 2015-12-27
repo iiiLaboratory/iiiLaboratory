@@ -15,7 +15,7 @@
        <font color="#ff6633">${success}</font> 
        </c:if>
        <form action="select-course.do" method="post">
-		课程号：<input type="text" name="identifier" />
+		课程名：<input type="text" name="courseName" />
 		学    号：<input type="text" name="student_num"/>
 		<input type="submit" value="submit" />
 	</form>
