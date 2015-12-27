@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
@@ -10,5 +10,18 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.default_schema">laboratory</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping resource="cn/edu/xidian/iii/domain/Configtable.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/Elective.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/Devicetype.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/Appointment.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/Device.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/Coursedevice.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/Teaming.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/Team.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/Note.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/Course.hbm.xml" />
+        <mapping resource="cn/edu/xidian/iii/domain/User.hbm.xml" />
     </session-factory>
 </hibernate-configuration>
