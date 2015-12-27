@@ -6,5 +6,7 @@ import cn.edu.xidian.iii.domain.Devicetype;
 public interface DeviceTypeService {
 	
 	public boolean register(Devicetype deviceType);
+	
+	public boolean existenceDeviceType(Devicetype devicetype);
 
 }

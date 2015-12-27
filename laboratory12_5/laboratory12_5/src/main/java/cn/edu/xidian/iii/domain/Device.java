@@ -44,6 +44,16 @@ public class Device implements java.io.Serializable {
 		this.count = count;
 		this.totalTime = totalTime;
 	}
+	
+	public Device(Devicetype devicetype, String deviceName, String barcode,
+			 String status, String detail, Integer count) {
+		this.devicetype = devicetype;
+		this.deviceName = deviceName;
+		this.barcode = barcode;
+		this.status = status;
+		this.detail = detail;
+		this.count = count;
+	}
 
 
 	public Device(Devicetype devicetype, String deviceName, String barcode,

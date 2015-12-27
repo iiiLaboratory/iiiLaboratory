@@ -6,5 +6,7 @@
 <a href="/laboratory/type-register.do">devicetype</a></br>
 <a href="/laboratory/device-register.do">device</a></br>
 <a href="/laboratory/user-course.do">course</a>
+<a href="/laboratory/DoExcel.do">deviceAndTypeRegisterUseExcel</a>
+
 </body>
 </html>
