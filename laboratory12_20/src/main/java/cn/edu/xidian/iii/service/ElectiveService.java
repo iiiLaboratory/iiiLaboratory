@@ -9,4 +9,6 @@ public interface ElectiveService {
 	   public  Course findCourseById(String courseid);
 	   public boolean saveElective(Elective elective);
 	   public boolean isElectiveExist(Elective elective);
+	   /**通过课程名获取课程*/
+	   public  Course findCourseByName(String courseName);
 }

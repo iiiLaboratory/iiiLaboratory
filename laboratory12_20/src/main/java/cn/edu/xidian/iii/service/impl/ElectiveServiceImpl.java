@@ -64,5 +64,15 @@ public class ElectiveServiceImpl implements ElectiveService {
 		
 	}
 
+	public Course findCourseByName(String courseName) {
+		// TODO Auto-generated method stub
+		Course course=new Course();
+		course.setCourseName(courseName);
+		List<Course> courses=courseDao.findByExample(course);
+		if(courses.size()==0)
+			return null;
+		return courses.get(0);
+	}
+
 
 }
