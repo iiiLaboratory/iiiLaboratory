@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-11-12 11:21:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.edu.xidian.iii.domain.User" table="user" catalog="laboratory">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="user_name" length="20" not-null="true" />
+        </property>
+        <property name="role" type="string">
+            <column name="role" length="20" not-null="true" />
+        </property>
+        <property name="cardcode" type="java.lang.Integer">
+            <column name="cardcode" not-null="false" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50" not-null="true" />
+        </property>
+        <property name="registerTime" type="timestamp">
+            <column name="register_time" length="19" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="20" not-null="true" unique="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="11" not-null="true" unique="true" />
+        </property>
+        <property name="studentNum" type="string">
+            <column name="student_num" length="11" not-null="true" unique="true" />
+        </property>
+        <set name="electives" table="elective" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="cn.edu.xidian.iii.domain.Elective" />
+        </set>
+        <set name="teamings" table="teaming" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="cn.edu.xidian.iii.domain.Teaming" />
+        </set>
+        <set name="teams" table="team" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="team_leader" not-null="true" />
+            </key>
+            <one-to-many class="cn.edu.xidian.iii.domain.Team" />
+        </set>
+    </class>
+</hibernate-mapping>
